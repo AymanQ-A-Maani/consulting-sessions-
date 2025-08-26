@@ -29,7 +29,8 @@ const DecisionTree: React.FC = () => {
             <div className="text-lg text-gray-700 space-y-2">
               <p><strong>عدد الأسئلة:</strong> سؤالان كحد أقصى</p>
               <p><strong>السؤال الأول:</strong> ما هي مرحلتك المهنية الحالية؟</p>
-              <p><strong>السؤال الثاني:</strong> ما هو هدفك الأساسي؟ (للطلاب والخريجين فقط)</p>
+              <p><strong>السؤال الثاني:</strong> ما هو هدفك الأساسي؟ (للطلاب والخريجين)</p>
+              <p><strong>السؤال الثالث:</strong> ما هو هدفك لحجز الباقة؟ (للمحترفين فقط)</p>
             </div>
           </div>
           
@@ -44,7 +45,7 @@ const DecisionTree: React.FC = () => {
         {/* Decision Tree Visualization */}
         <div className="bg-white rounded-3xl shadow-xl p-8">
           <h2 className="text-2xl font-bold text-center text-gray-800 mb-12">
-            خريطة القرارات الكاملة - 7 مسارات محتملة
+            خريطة القرارات الكاملة - 9 مسارات محتملة
           </h2>
           
           <div className="overflow-x-auto">
@@ -128,15 +129,22 @@ const DecisionTree: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="bg-white rounded-lg p-4 shadow-sm text-center">
-                      <p className="text-lg font-semibold text-purple-800">مباشرةً</p>
-                      <div className="flex items-center justify-center mt-2">
-                        <span className="text-purple-600 mr-2">→</span>
-                        <span className="font-semibold text-purple-800">Career Accelerator</span>
-                      </div>
-                      <p className="text-sm text-gray-600 mt-2">
-                        لا يحتاج سؤال ثاني
-                      </p>
+                    <div className="space-y-4">
+                      {[
+                        'أ) تغيير مسارك المهني',
+                        'ب) الحصول على ترقية',
+                        'ج) تطوير براندك الشخصي'
+                      ].map((option, index) => (
+                        <div key={index} className="flex items-center">
+                          <div className="bg-white rounded-lg p-3 shadow-sm flex-1 text-right">
+                            <p className="text-sm text-gray-700">{option}</p>
+                            <div className="flex items-center justify-end mt-2">
+                              <span className="text-xs text-purple-600 mr-2">→</span>
+                              <span className="text-xs font-semibold text-purple-800">Career Accelerator</span>
+                            </div>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                   
@@ -162,8 +170,8 @@ const DecisionTree: React.FC = () => {
                 <div className="text-xs text-green-600">Career Launchpad</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-800">1</div>
-                <div className="text-sm text-gray-600">مسار للمحترفين</div>
+                <div className="text-2xl font-bold text-purple-800">3</div>
+                <div className="text-sm text-gray-600">مسارات للمحترفين</div>
                 <div className="text-xs text-purple-600">Career Accelerator</div>
               </div>
             </div>
