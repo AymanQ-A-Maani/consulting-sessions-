@@ -85,6 +85,27 @@ export const questions: QuizQuestion[] = [
         value: 'career_path'
       }
     ]
+  },
+  {
+    id: 'professional_goals',
+    text: 'ما هو هدفك لحجز الباقة؟',
+    options: [
+      {
+        id: 'career_change',
+        text: 'تغيير مسارك المهني',
+        value: 'career_change'
+      },
+      {
+        id: 'promotion',
+        text: 'الحصول على ترقية',
+        value: 'promotion'
+      },
+      {
+        id: 'personal_brand',
+        text: 'تطوير براندك الشخصي',
+        value: 'personal_brand'
+      }
+    ]
   }
 ];
 
@@ -178,8 +199,18 @@ export const decisionPaths = [
     description: 'خريج جديد → اختيار المسار المهني المناسب → Career Launchpad'
   },
   {
-    path: ['professional'],
+    path: ['professional', 'career_change'],
     result: 'career_accelerator',
-    description: 'محترف ذو خبرة (3+ سنوات) → Career Accelerator مباشرةً'
+    description: 'محترف ذو خبرة → تغيير مسارك المهني → Career Accelerator'
+  },
+  {
+    path: ['professional', 'promotion'],
+    result: 'career_accelerator',
+    description: 'محترف ذو خبرة → الحصول على ترقية → Career Accelerator'
+  },
+  {
+    path: ['professional', 'personal_brand'],
+    result: 'career_accelerator',
+    description: 'محترف ذو خبرة → تطوير براندك الشخصي → Career Accelerator'
   }
 ];

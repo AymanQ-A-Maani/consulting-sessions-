@@ -25,6 +25,8 @@ const Quiz: React.FC = () => {
         return questions[1]; // Student goals
       } else if (firstAnswer === 'graduate') {
         return questions[2]; // Graduate challenges
+      } else if (firstAnswer === 'professional') {
+        return questions[3]; // Professional goals
       }
     }
     return null;
@@ -38,13 +40,8 @@ const Quiz: React.FC = () => {
 
     // Determine next step or result
     if (questionId === 'career_stage') {
-      if (answer === 'professional') {
-        // Direct to result for professionals
-        setTimeout(() => navigate('/result/career_accelerator'), 500);
-      } else {
-        // Go to second question
-        setQuizState(prev => ({ ...prev, currentStep: 2 }));
-      }
+      // Always go to second question now
+      setQuizState(prev => ({ ...prev, currentStep: 2 }));
     } else {
       // Second question answered, calculate result
       const path = [newAnswers.career_stage, answer];
@@ -86,7 +83,7 @@ const Quiz: React.FC = () => {
               الاختبار التفاعلي
             </h1>
             <div className="bg-blue-100 text-blue-800 px-4 py-2 rounded-full inline-block">
-              السؤال {quizState.currentStep} من {quizState.currentStep === 1 || quizState.answers.career_stage === 'professional' ? '1' : '2'}
+              السؤال {quizState.currentStep} من 2
             </div>
           </div>
 
@@ -127,11 +124,9 @@ const Quiz: React.FC = () => {
               <div className={`w-3 h-3 rounded-full ${
                 quizState.currentStep >= 1 ? 'bg-blue-800' : 'bg-gray-300'
               }`}></div>
-              {quizState.answers.career_stage !== 'professional' && (
-                <div className={`w-3 h-3 rounded-full ${
-                  quizState.currentStep >= 2 ? 'bg-blue-800' : 'bg-gray-300'
-                }`}></div>
-              )}
+              <div className={`w-3 h-3 rounded-full ${
+                quizState.currentStep >= 2 ? 'bg-blue-800' : 'bg-gray-300'
+              }`}></div>
             </div>
           </div>
         </div>
