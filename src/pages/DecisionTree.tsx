@@ -27,7 +27,7 @@ const DecisionTree: React.FC = () => {
           
           <div className="bg-white rounded-2xl p-6 shadow-lg mb-8 max-w-2xl mx-auto">
             <div className="text-lg text-gray-700 space-y-2">
-              <p><strong>عدد الأسئلة:</strong> سؤالان كحد أقصى</p>
+              <p><strong>عدد الأسئلة:</strong> ثلاثة أسئلة كحد أقصى</p>
               <p><strong>السؤال الأول:</strong> ما هي مرحلتك المهنية الحالية؟</p>
               <p><strong>السؤال الثاني:</strong> ما هو هدفك الأساسي؟ (للطلاب والخريجين)</p>
               <p><strong>السؤال الثالث:</strong> ما هو هدفك لحجز الباقة؟ (للمحترفين فقط)</p>
